@@ -1,0 +1,11 @@
+FROM alpine:3.10.3
+
+ADD . /workspace
+
+WORKDIR /workspace
+
+RUN apk update &&\
+    apk add openjdk8 gcc libc-dev sbt cargo
+
+ENV JAVA_HOME=/usr/lib/jvm/java-1.8-openjdk
+ENV PATH="$JAVA_HOME/bin:${PATH}"
